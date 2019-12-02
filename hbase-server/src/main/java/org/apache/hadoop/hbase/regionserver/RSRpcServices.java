@@ -310,6 +310,7 @@ public class RSRpcServices implements HBaseRPCErrorHandler,
   final LongAdder rpcMutateRequestCount = new LongAdder();
 
   // Server to handle client requests.
+  // 用来和客户端通信
   final RpcServerInterface rpcServer;
   final InetSocketAddress isa;
 

@@ -154,7 +154,7 @@ public class HMasterCommandLine extends ServerCommandLine {
 
     try {
       // If 'local', defer to LocalHBaseCluster instance.  Starts master
-      // and regionserver both in the one JVM.
+      // and regionserver both in the one JVM. 本地启动 master 和 regionserver 启动在一个jvm中
       if (LocalHBaseCluster.isLocal(conf)) {
         DefaultMetricsSystem.setMiniClusterMode(true);
         final MiniZooKeeperCluster zooKeeperCluster = new MiniZooKeeperCluster(conf);

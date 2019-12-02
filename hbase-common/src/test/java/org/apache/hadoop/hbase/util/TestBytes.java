@@ -180,6 +180,12 @@ public class TestBytes extends TestCase {
     }
   }
 
+  public void testSpite4() {
+    byte[] a = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    byte[] b = {0xf, 0xf, 0xf, 0xf, 0xf, 0xf, 0xf, 0xf, 0xf, 0xf, 0xf, 0xf, 0xf, 0xf, 0xf, 0xf};
+    System.out.println(Arrays.deepToString(Bytes.split(a, b, 8)));
+  }
+
   public void testToInt() throws Exception {
     int [] ints = {-1, 123, Integer.MIN_VALUE, Integer.MAX_VALUE};
     for (int i = 0; i < ints.length; i++) {
