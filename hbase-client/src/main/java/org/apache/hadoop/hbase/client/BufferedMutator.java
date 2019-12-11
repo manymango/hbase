@@ -26,6 +26,8 @@ import org.apache.hadoop.hbase.TableName;
 import org.apache.yetus.audience.InterfaceAudience;
 
 /**
+ * 批量，异步写入
+ *
  * <p>Used to communicate with a single HBase table similar to {@link Table} but meant for
  * batched, asynchronous puts. Obtain an instance from a {@link Connection} and call
  * {@link #close()} afterwards. Customizations can be applied to the {@code BufferedMutator} via
@@ -39,11 +41,12 @@ import org.apache.yetus.audience.InterfaceAudience;
  *
  * <p>Map/Reduce jobs are good use cases for using {@code BufferedMutator}. Map/reduce jobs
  * benefit from batching, but have no natural flush point. {@code BufferedMutator} receives the
- * puts from the M/R job and will batch puts based on some heuristic, such as the accumulated size
+ * puts from the M/R job and will batch puts based on some heuristic(启发式), such as the accumulated size
  * of the puts, and submit batches of puts asynchronously so that the M/R logic can continue
  * without interruption.
  * </p>
  *
+ *                                                更奇特的情况
  * <p>{@code BufferedMutator} can also be used on more exotic circumstances. Map/Reduce batch jobs
  * will have a single {@code BufferedMutator} per thread. A single {@code BufferedMutator} can
  * also be effectively used in high volume online systems to batch puts, with the caveat that

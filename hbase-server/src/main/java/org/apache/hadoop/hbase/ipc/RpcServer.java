@@ -371,6 +371,7 @@ public abstract class RpcServer implements RpcServerInterface,
       //get an instance of the method arg type
       HBaseRpcController controller = new HBaseRpcControllerImpl(call.getCellScanner());
       controller.setCallTimeout(call.getTimeout());
+      // xixi 调用相应的方法并，并或者结果
       Message result = call.getService().callBlockingMethod(md, controller, param);
       long receiveTime = call.getReceiveTime();
       long startTime = call.getStartTime();

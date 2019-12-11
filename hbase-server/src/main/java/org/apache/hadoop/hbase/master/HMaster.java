@@ -3041,6 +3041,7 @@ public class HMaster extends HRegionServer implements MasterServices {
    * @see org.apache.hadoop.hbase.master.HMasterCommandLine
    */
   public static void main(String [] args) {
+    System.setProperty("hadoop.home.dir", "C:\\programSoftware\\hadoop-3.1.3");
     LOG.info("STARTING service " + HMaster.class.getSimpleName());
     VersionInfo.logVersion();
     new HMasterCommandLine(HMaster.class).doMain(args);

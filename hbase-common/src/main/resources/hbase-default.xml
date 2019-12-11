@@ -43,7 +43,7 @@ possible configurations would overwhelm and obscure the important.
   -->
   <property >
     <name>hbase.tmp.dir</name>
-    <value>${java.io.tmpdir}/hbase-${user.name}</value>
+    <value>${java.io.tmpdir}hbase-${user.name}</value>
     <description>Temporary directory on the local filesystem.
     Change this setting to point to a location more permanent
     than '/tmp', the usual resolve for java.io.tmpdir, as the
@@ -51,7 +51,7 @@ possible configurations would overwhelm and obscure the important.
   </property>
   <property >
     <name>hbase.rootdir</name>
-    <value>${hbase.tmp.dir}/hbase</value>
+    <value>${hbase.tmp.dir}\hbase</value>
     <description>The directory shared by region servers and into
     which HBase persists.  The URL should be 'fully-qualified'
     to include the filesystem scheme.  For example, to specify the
