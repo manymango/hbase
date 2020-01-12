@@ -212,6 +212,9 @@ public abstract class RegionServerCallable<T, S> implements RetryingCallable<T> 
     return this.location.getRegionInfo();
   }
 
+  /**
+   * @param reload Set this to true if need to requery locations
+   */
   @Override
   public void prepare(final boolean reload) throws IOException {
     // check table state if this is a retry

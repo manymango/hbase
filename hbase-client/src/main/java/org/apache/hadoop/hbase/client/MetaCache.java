@@ -74,7 +74,7 @@ public class MetaCache {
   public RegionLocations getCachedLocation(final TableName tableName, final byte [] row) {
     ConcurrentNavigableMap<byte[], RegionLocations> tableLocations =
       getTableLocations(tableName);
-
+    // 小于等于row
     Entry<byte[], RegionLocations> e = tableLocations.floorEntry(row);
     if (e == null) {
       if (metrics != null) metrics.incrMetaCacheMiss();

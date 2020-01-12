@@ -44,6 +44,7 @@ public interface RegionLocator extends Closeable {
    * @throws IOException if a remote or network exception occurs
    */
   default HRegionLocation getRegionLocation(byte[] row) throws IOException {
+    // reload = false, 使用本地缓存
     return getRegionLocation(row, false);
   }
 
