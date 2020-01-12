@@ -1915,7 +1915,9 @@ class ConnectionImplementation implements ClusterConnection, Closeable {
         // We know that the region is still on this region server
         return;
       }
-
+      //1.regionserver返回RegionMovedException，在onCallFinished(call, hrc, addr, callback)中将RegionMovedException设置到HBaseRpcController
+      //2.在callBlockingMethod中throw new ServiceException(hrc.getFailed())
+      //3.throw ProtobufUtil.handleRemoteException(e);中得到RegionMovedException即作为此处cause
       if (cause instanceof RegionMovedException) {
         RegionMovedException rme = (RegionMovedException) cause;
         if (LOG.isTraceEnabled()) {

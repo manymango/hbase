@@ -94,6 +94,7 @@ public class BufferedMutatorParams implements Cloneable {
   }
 
   /**
+   * 设置flush time
    * Set the max timeout before the buffer is automatically flushed.
    */
   public BufferedMutatorParams setWriteBufferPeriodicFlushTimeoutMs(long timeoutMs) {
@@ -106,6 +107,7 @@ public class BufferedMutatorParams implements Cloneable {
   }
 
   /**
+   * 设置检查频率
    * Set the TimerTick how often the buffer timeout if checked.
    */
   public BufferedMutatorParams setWriteBufferPeriodicFlushTimerTickMs(long timerTickMs) {

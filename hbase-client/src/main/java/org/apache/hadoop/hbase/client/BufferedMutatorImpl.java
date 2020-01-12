@@ -211,6 +211,9 @@ public class BufferedMutatorImpl implements BufferedMutator {
   private final AtomicLong firstRecordInBufferTimestamp = new AtomicLong(0);
   private final AtomicLong executedWriteBufferPeriodicFlushes = new AtomicLong(0);
 
+  /**
+   * {@link this#writeBufferPeriodicFlushTimer} 周期性地执行这个方法进行flush
+   */
   private void timerCallbackForWriteBufferPeriodicFlush() {
     if (currentWriteBufferSize.get() == 0) {
       return; // Nothing to flush
